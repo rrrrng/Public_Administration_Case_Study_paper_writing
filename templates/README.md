@@ -14,9 +14,6 @@
 - `theory-binding-matrix.md`：理论—案例绑定矩阵。
 - `completion-summary-template.md`：Phase 0 总结模板。
 - `exemplar-extraction-template.md`：CN 范文结构抽取模板。
-- `simulated-fieldwork-dossier-template.md`：模拟田野场景档案模板。
-- `simulated-interview-pack-template.md`：模拟访谈素材包模板。
-- `simulated-claim-hypothesis-matrix.md`：模拟论点—材料—假设矩阵。
 - `revision-note-template.md`：迭代返工记录模板。
 
 ## Exemplar Corpus
@@ -30,6 +27,6 @@
 
 ## Usage Rule
 
-生成论文前，先使用 `paper-project-brief-template.md` 锁定主交付物、可用材料、第一版结论句、最小结果和扩展 backlog；再从 `CN/` 中选择 2–3 篇相近范文，使用 `exemplar-extraction-template.md` 提取体例、节奏、图表和论证方式，再使用模板组织用户材料。若用户要求 AI 自主模拟场景或访谈，先建立模拟田野档案、模拟访谈素材包和模拟证据链矩阵。
+生成论文前，先使用 `paper-project-brief-template.md` 锁定主交付物、可用材料、第一版结论句、最小结果和扩展 backlog；再从 `CN/` 中选择 2–3 篇相近范文，使用 `exemplar-extraction-template.md` 提取体例、节奏、图表和论证方式，再使用模板组织用户材料。材料不足时缩小范围或标注待补，不得模拟访谈或田野材料。
 
 生成机制图或路径图时，先使用 `mechanism-diagram-brief.md` 输出可审查草图、节点表、图题图注和范例迁移说明，等待用户确认后再生成图片或图像模型提示词。

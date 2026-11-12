@@ -4,7 +4,7 @@ This repository is the `social-science-paper-writing` skill package for Chinese 
 
 ## Core Purpose
 
-Use this package to turn public administration, governance, policy, interview, fieldwork, or simulated case materials into publication-oriented Chinese case-study manuscripts. Do not treat it as a generic case story, policy memo, work summary, or promotional writing tool.
+Use this package to turn public administration, governance, policy, interview, fieldwork, or other real case materials into publication-oriented Chinese case-study manuscripts. Do not treat it as a generic case story, policy memo, work summary, or promotional writing tool.
 
 The highest-priority style and structure reference is the Chinese exemplar corpus in `templates/CN/`. The public repository does not ship third-party full texts; users supply their own locally, and those files are excluded by `.gitignore`.
 
@@ -27,7 +27,7 @@ Before drafting a full manuscript, build:
 - `material-inventory`
 - `claim-evidence-matrix`
 
-Every substantive claim in the manuscript must be traceable to supplied material, clearly marked simulated material, or an explicit pending-verification note.
+Every substantive claim in the manuscript must be traceable to supplied material, public sources, or an explicit `[材料待补]` / pending-verification note.
 
 ## Key Rules
 
@@ -40,7 +40,7 @@ Every substantive claim in the manuscript must be traceable to supplied material
 - Do not use internal process labels such as "冲突触发", "材料碰撞", "机制判断", or "理论落点" as manuscript headings.
 - Never fabricate citations, interviews, policy files, statistics, or case evidence.
 - Mark unverifiable citations as `[引文待核实]`.
-- When using AI-generated simulated material, mark it with `[模拟生成材料]` or the more specific simulation labels defined in `SKILL.md`.
+- Do not simulate or fabricate interviews, fieldwork records, policy documents, or statistics. When material is insufficient, narrow the scope, downgrade the claim, or mark `[材料待补]`.
 
 ## Mechanism Diagrams
 
@@ -63,7 +63,6 @@ Keep image-generation API configuration separate from Codex/OpenAI configuration
 - `references/writing-guide.md`: Writing rules distilled from CN-style case papers.
 - `references/full-stack-workflow.md`: End-to-end workflow.
 - `references/qualitative-analysis-workflow.md`: Coding and process-tracing guide.
-- `references/simulated-fieldwork-protocol.md`: Required when simulating scenes, interviews, or evidence chains.
 - `references/mechanism-diagram-generation.md`: Mechanism/path diagram workflow.
 - `references/image-api-configuration.md`: Independent image API configuration rules.
 - `references/citation-verification-cn.md`: Chinese citation verification rules.

@@ -1,10 +1,10 @@
 ---
 name: social-science-paper-writing
-description: This skill should be used when writing Chinese public administration or social science case-study papers, especially 《公共管理学报》-style manuscripts, simulated fieldwork papers, governance case analysis, qualitative mechanism papers, theory-building case studies, mechanism/path diagram generation from .md articles, and literature-grounded public management articles. It supports CN exemplar matching, simulated interviews, qualitative coding, evidence-chain construction, mechanism modeling, diagram brief drafting, and full manuscript drafting.
+description: This skill should be used when writing Chinese public administration or social science case-study papers, especially 《公共管理学报》-style manuscripts, governance case analysis, qualitative mechanism papers, theory-building case studies, mechanism/path diagram generation from .md articles, and literature-grounded public management articles. It supports CN exemplar matching, qualitative coding, evidence-chain construction, mechanism modeling, diagram brief drafting, and full manuscript drafting.
 license: MIT
 metadata:
   title: 公共管理案例研究论文写作
-  version: 3.6.0
+  version: 3.7.0
   author: PA Writing Skill Contributors
   dependencies: [requests]
   tags: [公共管理, 公共行政, 治理, 政策过程, 社会科学, 个案研究, 定性研究, 理论建构, 写作, 方法论, 引文]
@@ -19,7 +19,7 @@ metadata:
 
 本技能锁定为《公共管理学报》式中文公共管理与社会科学案例研究论文。目标不是生成案例故事、调研报告或政策简报，而是把治理、政策、公共管理案例转化为接近 `templates/CN/` 范文质量的可投稿论文：问题意识、文献对话、研究设计、案例深描、机制解释、理论贡献、参考文献全部闭环。
 
-启动本技能后，必须优先读取 `references/cn-exemplar-benchmark.md`，并将其中的“范文体例谱系、开篇质量标准、摘要模板、研究设计最低配置、案例分析段落标准、机制模型要求、理论贡献层级、禁止清单”作为硬约束。启动新论文、选题构思、材料摄入或完整模拟稿前，必须读取 `references/paper-project-decomposition.md`，先锁定主交付物、可用材料、第一版结论句和最小结果计划。生成完整论文、扩写或压缩正文时，必须读取 `references/manuscript-length-control.md`，默认把完整中文正文控制在 15000-17000 字。写作或修改引言、问题提出、研究背景时，必须读取 `references/introduction-writing-module.md`，把“引言不只是介绍主题，更应该构造问题”作为开篇原则。写作或修改案例分析、机制解释、理论提升、摘要和结论时，必须读取 `references/argumentation-discipline.md`，严格审计“不是……而是……”“不仅……而且……”“只有……才……”等强逻辑句式。若用户要求 AI 自主模拟场景、模拟开展访谈或材料不足需要推演，必须同时读取 `references/simulated-fieldwork-protocol.md`。若用户要求根据 `.md` 文章、段落、范文和 jpg/png 参考图绘制机制图或路径图，必须读取 `references/mechanism-diagram-generation.md`，并优先使用 `templates/mechanism-diagram-brief.md` 输出草图确认稿。
+启动本技能后，必须优先读取 `references/cn-exemplar-benchmark.md`，并将其中的“范文体例谱系、开篇质量标准、摘要模板、研究设计最低配置、案例分析段落标准、机制模型要求、理论贡献层级、禁止清单”作为硬约束。启动新论文、选题构思或材料摄入前，必须读取 `references/paper-project-decomposition.md`，先锁定主交付物、可用材料、第一版结论句和最小结果计划。生成完整论文、扩写或压缩正文时，必须读取 `references/manuscript-length-control.md`，默认把完整中文正文控制在 15000-17000 字。写作或修改引言、问题提出、研究背景时，必须读取 `references/introduction-writing-module.md`，把“引言不只是介绍主题，更应该构造问题”作为开篇原则。写作或修改案例分析、机制解释、理论提升、摘要和结论时，必须读取 `references/argumentation-discipline.md`，严格审计“不是……而是……”“不仅……而且……”“只有……才……”等强逻辑句式。若用户要求根据 `.md` 文章、段落、范文和 jpg/png 参考图绘制机制图或路径图，必须读取 `references/mechanism-diagram-generation.md`，并优先使用 `templates/mechanism-diagram-brief.md` 输出草图确认稿。
 
 ## When To Use This Skill
 
@@ -27,8 +27,7 @@ Use this skill for:
 
 - 中文公共管理、公共行政、政策过程、基层治理、数字政府、社会治理案例研究论文。
 - 《公共管理学报》式概念建构、机制解释、行动策略、框架归纳论文。
-- 需要 AI 自主模拟治理场景、访谈素材、事件链和模拟证据链的完整模拟稿。
-- 需要把访谈、政策文件、新闻材料、调研笔记或模拟材料转化为理论机制的论文。
+- 需要把访谈、政策文件、新闻材料、调研笔记或公开材料转化为理论机制的论文。
 - 需要从 `templates/CN/` 范文反推标题树、摘要结构、问题链和案例分析写法的任务。
 - 需要输入 `.md` 文章或段落，输出对应机制图、路径图、理论模型图或 GPT Image 绘图 brief 的任务。
 
@@ -40,7 +39,7 @@ Do not use this skill as the primary workflow for:
 
 ## Core Philosophy
 
-本技能不是线性写作器，而是“材料—范文—理论—正文”的迭代系统。材料不足时先模拟；论点不足时回到编码；理论贡献不足时回到文献与机制；正文像工作总结时回到案例分析。每次返工都必须保留前一轮的材料、判断和修改理由。
+本技能不是线性写作器，而是“材料—范文—理论—正文”的迭代系统。材料不足时先缩小范围或补充材料；论点不足时回到编码；理论贡献不足时回到文献与机制；正文像工作总结时回到案例分析。每次返工都必须保留前一轮的材料、判断和修改理由。
 
 ## 核心原则
 
@@ -48,7 +47,7 @@ Do not use this skill as the primary workflow for:
 - 成稿质量以 `references/cn-exemplar-benchmark.md` 为基准，不能只满足一般论文结构。
 - 先把论文当成小项目管理：锁定主交付物类型（现象型、差异型、机制型或框架型），再组织材料、范文、理论和正文。
 - 先建立案例档案、材料清单、证据链矩阵，再生成正文。
-- 允许 AI 自主模拟场景和模拟访谈；默认用 `[模拟生成材料]` 标注来源，便于区分真实材料、用户提供材料和 AI 推演材料。
+- 禁止模拟或虚构访谈、田野记录、政策文件和统计数据；材料不足时缩小范围、降低结论强度或标注 `[材料待补]`。
 - 先输出范文匹配说明：列出 2–3 篇最相近 CN 范文、选择理由、借鉴的标题节奏和不能照搬之处。
 - 案例分析必须呈现多维表现、线索追踪、行动策略或生成逻辑，而非流水账。
 - 机制分析必须包含主体、制度、资源、技术/情境、结果之间的因果链条。
@@ -58,7 +57,7 @@ Do not use this skill as the primary workflow for:
 - 完整中文正文默认控制在 15000-17000 字；不得用空泛背景、重复文献或无材料判断填充篇幅。
 - 严格限制“不是……而是……”“并非……而是……”“不只是……更是……”“不仅……而且……”“只有……才……”等强逻辑句式；写作前必须先完成辩证逻辑段落准入审计，确认该段指向本文核心问题、解决预期结果的一部分，且删除后会损害论证结构。
 - 引文必须真实可核验；不能确认的文献标为 `[引文待核实]`。
-- 如果用户要求“完整模拟稿”，可以使用模拟访谈和模拟材料生成完整论文，但需在工作流中保留“模拟生成”来源说明。
+- 所有实证材料必须可回溯到用户提供材料、公开文件或可核验来源；无法回溯的内容不得进入正文。
 
 ## 《公共管理学报》范文体例族
 
@@ -97,7 +96,7 @@ Phase 4: 案例呈现与案例分析 ──► Phase 5: 机制模型与理论提
 
 | 触发信号 | 返回阶段 | 修复动作 |
 |---|---|---|
-| 选题只有政策重要性，没有经验反常 | Phase 0/0A | 补模拟场景、主体冲突和问题链 |
+| 选题只有政策重要性，没有经验反常 | Phase 0 | 补政策背景、主体冲突和问题链 |
 | 主交付物失控，同时承诺现象、差异、机制和方案 | Phase 0 | 执行 `references/paper-project-decomposition.md`，锁定一种主交付物 |
 | 第一版结论句无法一句话复述或无证据可支撑 | Phase 0/2 | 重写结论句、降级结论强度或补材料 |
 | 范文匹配笼统，标题树像通用论文 | Phase 1 | 重做 CN 范文抽取和体例锁定 |
@@ -125,27 +124,11 @@ Phase 4: 案例呈现与案例分析 ──► Phase 5: 机制模型与理论提
 8. 建立 `claim-evidence-matrix` 草案：每个潜在论点至少绑定一条一手材料或两条互证材料。
 9. 标出材料缺口：缺少访谈、政策文本、时间线、统计口径、反例材料时，先列缺口，不写强结论。
 10. 识别初步研究谜题：治理悖论、经验反常、主体策略、机制偏差或理论空白。
-11. 若真实材料不足且用户允许或要求模拟，按 `references/simulated-fieldwork-protocol.md` 生成 `[模拟场景]`、`[模拟访谈-角色]`、机制假设和真实验证清单。
+11. 若真实材料不足，列出材料缺口、待补材料和可替代的公开材料；不得用模拟访谈或虚构材料替代。
 
 使用：`templates/paper-project-brief-template.md`、`templates/case-dossier-template.md`、`templates/material-inventory-template.md`、`templates/claim-evidence-matrix.md`。
 
-用户材料充分时，优先从材料中归纳；用户只有主题或少量描述时，可以主动模拟场景和访谈以搭建论文框架。模拟内容可形成“访谈素材包”“机制假设”“案例过程线”“可先行搭建的论文框架”。Phase 0 完成后输出 Completion Summary，等待用户确认“可以”后进入 Phase 1。
-
-## Phase 0A: 模拟场景与模拟访谈
-
-当用户希望 AI 自主模拟场景、模拟访谈，或用户只有选题但缺少一手材料时，执行本阶段。先读取 `references/simulated-fieldwork-protocol.md`。
-
-必须输出：
-
-- 模拟来源声明：说明以下内容为 AI 生成的模拟材料，用于构建论文场景、访谈素材和机制解释。
-- 场景设定：政策场域、组织层级、关键主体、制度压力、资源约束、技术条件。
-- 主体画像：牵头部门、协同部门、基层执行者、平台技术方、服务对象、第三方组织等。
-- 模拟访谈片段：使用 `[模拟访谈-角色]` 和 `[模拟生成材料]` 标签，呈现不同主体的立场、约束和行动逻辑。
-- 机制假设提炼：可能概念、机制链条、行动策略、替代解释、反例方向。
-- 追问清单：后续可以继续扩展、细化或交叉验证的访谈问题。
-- 论文使用建议：说明模拟材料如何转化为问题提出、研究设计、案例分析和机制模型。
-
-模拟材料可以单独进入 `simulated-fieldwork-dossier` 或 `simulated-claim-hypothesis-matrix`。若用户要求完整模拟论文，可将其作为模拟证据链使用；若用户后续提供真实材料，再将模拟证据链替换或校准为真实证据链。
+用户材料充分时，优先从材料中归纳；用户只有主题或少量描述时，先缩小研究问题、列出材料缺口和待补清单，不得用模拟访谈或虚构田野材料搭建论文框架。Phase 0 完成后输出 Completion Summary，等待用户确认“可以”后进入 Phase 1。
 
 ## Phase 1: 范文匹配、体例锁定与研究设计
 
@@ -161,7 +144,7 @@ Phase 4: 案例呈现与案例分析 ──► Phase 5: 机制模型与理论提
 - 篇幅预算：按 `references/manuscript-length-control.md` 分配各章节目标字数，完整正文默认 15000-17000 字。
 - 图表计划：时间线、主体关系、证据链矩阵、机制模型、理论区隔表等。
 - 研究设计：案例选择理由、资料来源、分析单元、研究边界、伦理与匿名化处理。
-- 材料来源说明：哪些内容来自真实材料、用户提供材料、模拟推演或混合生成。
+- 材料来源说明：逐项标明真实材料、用户提供材料或公开材料的来源与可核验性。
 - 理论贡献预判：概念贡献、机制贡献、边界贡献或情境贡献。
 
 概念建构型论文必须设置概念界定；机制解释型或行动策略型论文可把概念界定融入文献回顾与分析框架。
@@ -182,10 +165,10 @@ Phase 4: 案例呈现与案例分析 ──► Phase 5: 机制模型与理论提
 2. 轴心编码：把开放编码合并为 2–4 个分析维度或 2–3 条过程线索。
 3. 选择性编码：确定核心概念、核心机制或核心行动策略。
 4. 过程追踪：用“前置条件 → 触发事件 → 主体行动 → 互动过程 → 结果”组织关键链条。
-5. 证据链矩阵：每个发现绑定材料编号、证据类型、引用位置和反向证据；模拟材料进入单独的模拟证据链或在证据类型中标注为“模拟生成”。
+5. 证据链矩阵：每个发现绑定材料编号、证据类型、引用位置和反向证据。
 6. 反例/替代解释清单：至少列出 2 个可能替代解释，并判断材料能否排除。
 
-证据强度规则：A级为一手访谈 + 文件/观察互证，可写为核心发现；B级为公开文件 + 多条公开材料互证，可写为稳健判断；C级为单一材料支持，只能写为有限观察；D级无材料支持，不进入正文；S级为模拟材料或模拟访谈，可用于完整模拟稿、机制推演、访谈素材和待校准发现，需标注为模拟生成。
+证据强度规则：A级为一手访谈 + 文件/观察互证，可写为核心发现；B级为公开文件 + 多条公开材料互证，可写为稳健判断；C级为单一材料支持，只能写为有限观察；D级无材料支持，不进入正文。不得设置“模拟材料”等级，也不得用模拟访谈替代真实证据。
 
 ## Phase 3: 概念界定与理论绑定
 
@@ -242,7 +225,7 @@ Phase 4: 案例呈现与案例分析 ──► Phase 5: 机制模型与理论提
 - 用 `references/citation-verification-cn.md` 做中文引文核验。
 - 将无法核验的引用保留为 `[引文待核实]`，不得编造。
 - 检查每个核心判断能否回溯到 `claim-evidence-matrix`。
-- 检查模拟材料是否已按用户目标处理：完整模拟稿中保留“模拟生成”来源说明；真实材料稿中替换、校准或移入附录/访谈设计。
+- 检查是否存在虚构访谈、田野记录、政策文件或统计数据；发现即删除或改为 `[材料待补]`。
 
 ## 写作优先级
 
@@ -259,11 +242,10 @@ Phase 4: 案例呈现与案例分析 ──► Phase 5: 机制模型与理论提
 - `references/manuscript-length-control.md`：成稿篇幅控制模块，完整正文默认 15000-17000 字，并提供章节预算、扩写和压缩顺序。
 - `references/argumentation-discipline.md`：论证句式约束模块，用于限制强转折、强递进和强排他句式，防止用修辞替代材料论证。
 - `references/introduction-writing-module.md`：引言写作模块，用于把主题介绍推进为问题构造，并生成开篇背景句、问题链、研究缺口和研究设计导出。
-- `references/simulated-fieldwork-protocol.md`：模拟场景与模拟访谈协议，用于材料不足、构思推演和访谈设计。
 - `references/exemplar-extraction.md`：从 CN 范文抽取标题树、摘要、问题链、机制段落和贡献表达。
 - `references/mechanism-diagram-generation.md`：从 `.md` 文章、段落、范文和参考图生成机制图草图与 GPT Image 绘图 brief 的工作流。
 - `references/image-api-configuration.md`：生图 API endpoint、key、模型和尺寸的本地配置约定。
-- `references/context-management.md`：大型范文库、模拟材料和证据矩阵的上下文管理。
+- `references/context-management.md`：大型范文库、访谈材料和证据矩阵的上下文管理。
 - `references/iteration-rules.md`：返工触发信号、返回阶段和修复动作。
 - `references/full-stack-workflow.md`：从材料到成稿的完整流程。
 - `references/qualitative-analysis-workflow.md`：编码、过程追踪、反例处理。
@@ -277,9 +259,6 @@ Phase 4: 案例呈现与案例分析 ──► Phase 5: 机制模型与理论提
 - `templates/paper-project-brief-template.md`：论文项目简报，用于 Phase 0 前置锁定交付物、材料强度、结论句和最小结果。
 - `templates/material-inventory-template.md`：材料清单。
 - `templates/claim-evidence-matrix.md`：论点—证据链矩阵。
-- `templates/simulated-fieldwork-dossier-template.md`：模拟田野档案。
-- `templates/simulated-interview-pack-template.md`：模拟访谈素材包。
-- `templates/simulated-claim-hypothesis-matrix.md`：模拟论点—材料—假设矩阵。
 - `templates/exemplar-extraction-template.md`：范文抽取记录模板。
 - `templates/revision-note-template.md`：迭代返工记录。
 - `templates/mechanism-models.md`：机制模型图。
@@ -297,4 +276,4 @@ Phase 4: 案例呈现与案例分析 ──► Phase 5: 机制模型与理论提
 - 生成机制图或路径图时，必须先确认草图和节点表，再生成图像；不得画出目标文本没有支撑的节点。
 - 禁止用无证据材料生成强结论。
 - 禁止虚构引文、访谈、政策文件或统计数据。
-- 允许模拟场景和访谈；完整模拟稿中可使用模拟材料支撑分析，但需保留来源说明，便于后续扩展、校准或替换。
+- 禁止模拟或虚构访谈、田野记录、政策文件和统计数据；材料不足时必须缩小范围、降低结论强度或明确标注 `[材料待补]`。

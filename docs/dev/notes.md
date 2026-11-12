@@ -78,7 +78,7 @@ Observed pre-existing or user-side changes that should not be reverted without e
 
 1. Run skill validation or package validation if available.
 2. Review `SKILL.md` for progressive disclosure: move detailed image API text or long phase details into references if needed.
-3. Test a simulated Phase 0 run using `paper-project-brief-template.md`.
+3. Test a Phase 0 dry run using `paper-project-brief-template.md`.
 4. Test an introduction rewrite using `introduction-writing-module.md`.
 5. Decide whether to commit all current changes together or split into logical commits.
 
