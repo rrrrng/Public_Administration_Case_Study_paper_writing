@@ -1,0 +1,25 @@
+# Local secrets and runtime configuration
+.env
+.env.*
+config/image-generation.local.json
+
+# Third-party exemplar corpus (copyright / institutional download stamps)
+templates/CN/*.md
+templates/CN/*.pdf
+templates/CN/*.png
+templates/CN/*.jpg
+templates/EN/*.md
+templates/EN/*.pdf
+templates/EN/*.png
+templates/EN/*.jpg
+templates/image/*
+!templates/CN/README.md
+!templates/EN/README.md
+!templates/image/README.md
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
