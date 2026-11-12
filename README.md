@@ -41,7 +41,8 @@ git clone https://github.com/rrrrng/Public_Administration_Case_Study_paper_writi
 ```
 
 ## 范文语料
-你可以把**有权使用**的 Markdown 范文放入 `templates/CN/` 或 `templates/EN/`。
+仓库已内置两套范文：`templates/CN/` 收录 11 篇中文期刊案例研究范文，`templates/EN/` 收录 185 篇英文公共管理文献，可直接用于体例匹配与理论锚定，用法见 `templates/README.md`。
+你也可以把**有权使用**的 Markdown 范文放入 `templates/CN/` 或 `templates/EN/`。
 
 ## 许可证
 本仓库的 Skill 指令、模板与文档采用 MIT License，详见 `LICENSE`。第三方论文与图片的版权归原作者和出版机构所有。
