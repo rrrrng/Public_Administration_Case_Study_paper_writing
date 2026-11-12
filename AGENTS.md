@@ -6,7 +6,7 @@ This repository is the `social-science-paper-writing` skill package for Chinese 
 
 Use this package to turn public administration, governance, policy, interview, fieldwork, or other real case materials into publication-oriented Chinese case-study manuscripts. Do not treat it as a generic case story, policy memo, work summary, or promotional writing tool.
 
-The highest-priority style and structure reference is the Chinese exemplar corpus in `templates/CN/`. The public repository does not ship third-party full texts; users supply their own locally, and those files are excluded by `.gitignore`.
+The highest-priority style and structure reference is the Chinese exemplar corpus in `templates/CN/`. The repository ships 11 Chinese exemplars and 185 English references; start by matching 2-3 CN exemplars.
 
 ## Required Workflow
 
@@ -82,4 +82,4 @@ Keep image-generation API configuration separate from Codex/OpenAI configuration
 - Avoid reintroducing old fixed-structure article rules.
 - If adding templates, link them from `templates/README.md` and `SKILL.md`.
 - Do not commit real API keys, local `.env` files, or `config/image-generation.local.json`.
-- Keep `templates/CN/`, `templates/EN/`, and `templates/image/` local-only. Do not commit third-party full texts, paper figures, or PDF conversions containing institutional download stamps.
+- The exemplar corpus lives in `templates/CN/` and `templates/EN/`; `templates/image/` holds local-only figures.

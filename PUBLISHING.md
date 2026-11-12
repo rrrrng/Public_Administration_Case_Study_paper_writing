@@ -69,7 +69,7 @@ git status
 然后打开 `https://github.com/<your-name>/<repo>`，确认：
 
 - 首页能正常渲染 `README.md`。
-- `templates/CN/`、`templates/EN/` 中只有 `README.md`，没有论文全文。
+- `templates/CN/`、`templates/EN/` 中的语料文件数与 `README.md` 描述一致。
 - 文件列表中没有 `config/image-generation.local.json`、`.env` 或 API key。
 - 提交作者不是你的真实姓名/私人邮箱（如在意隐私）。
 
@@ -89,28 +89,20 @@ git push
 
 ```powershell
 rg -n "C:\\Users|D:\\Desktop|University Library user|Downloaded from|sk-[A-Za-z0-9]{10,}" .
-git ls-files | Select-String -Pattern "local.json|\.env|templates/(CN|EN)/.+\.(md|pdf|png|jpg)$"
+git ls-files | Select-String -Pattern "local.json|\.env"
 ```
 
-理想结果是两条命令都没有输出。若第一条命中，请先删除或替换对应内容；若第二条命中，说明本地语料被误加入暂存区，执行：
+理想结果是两条命令都没有输出。若第一条命中，请先删除或替换对应内容；若第二条命中，说明本地密钥配置被加入暂存区，执行：
 
 ```powershell
-git rm --cached "templates/CN/文件名.md"
-git rm --cached "templates/EN/文件名.md"
+git rm --cached "config/image-generation.local.json"
 ```
 
 然后重新提交。已经被推送过的敏感内容不会因为后续删除而从 Git 历史中消失，必要时需重写历史或删除仓库重建。
 
 ## 7. 关于范文语料
 
-本仓库默认不分发第三方论文全文，原因见 `README.md`。如果你确认拥有某批语料的再分发授权，可以：
-
-1. 删除 `.gitignore` 中对应的排除规则。
-2. 清除 PDF 转换稿中的机构名称、图书馆账号和下载水印。
-3. 确认不包含个人身份信息和未公开材料。
-4. 再执行 `git add` 与 `git commit`。
-
-如果只是自己本地使用，保持现状即可：把语料放进 `templates/CN/` 或 `templates/EN/`，它们不会被提交。
+范文语料已随仓库分发。更新语料时，直接替换 `templates/CN/` 或 `templates/EN/` 中的 Markdown 文件，并同步修改 `README.md` 和 `templates/README.md` 中的数量说明。
 
 ## 8. 常见问题
 
