@@ -40,7 +40,7 @@ Every substantive claim in the manuscript must be traceable to supplied material
 - Do not use internal process labels such as "冲突触发", "材料碰撞", "机制判断", or "理论落点" as manuscript headings.
 - Never fabricate citations, interviews, policy files, statistics, or case evidence.
 - Mark unverifiable citations as `[引文待核实]`.
-- Do not simulate or fabricate interviews, fieldwork records, policy documents, or statistics. When material is insufficient, narrow the scope, downgrade the claim, or mark `[材料待补]`.
+- Do not fabricate interviews, fieldwork records, policy documents, or statistics. When material is insufficient, narrow the scope, downgrade the claim, or mark `[材料待补]`.
 
 ## Mechanism Diagrams
 

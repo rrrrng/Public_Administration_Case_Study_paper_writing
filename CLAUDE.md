@@ -31,7 +31,7 @@ The skill uses a full-stack paper workflow:
 - For mechanism/path diagram requests, build a reviewable diagram brief and draft diagram first; generate the image only after the user confirms the draft.
 - Do not use “冲突触发/材料碰撞/机制判断/理论落点” as manuscript headings. These may be internal reasoning steps only.
 - Never fabricate citations, interviews, policy files, statistics, or case evidence. Mark unverifiable citations as `[引文待核实]`.
-- Do not simulate interviews or fieldwork. When material is insufficient, narrow the scope, downgrade the claim, or mark `[材料待补]`.
+- Do not use AI-generated interviews or fieldwork. When material is insufficient, narrow the scope, downgrade the claim, or mark `[材料待补]`.
 
 ## Important Files
 
