@@ -1,6 +1,7 @@
 # 公共管理案例研究论文写作 Skill
 
 让 AI 写出像中文期刊上的公共管理案例研究论文。
+
 *Turn real governance and policy materials into Chinese case-study manuscripts that read like published journal articles.*
 
 **语言 / Language**　｜　**简体中文**　｜　[English](#english)
