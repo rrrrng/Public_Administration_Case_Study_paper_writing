@@ -157,3 +157,7 @@ docs/               development notes
 The skill instructions, templates and documentation in this repository are released under the MIT License; see `LICENSE`. Copyright of the third-party papers and images remains with their original authors and publishers.
 
 </details>
+
+---
+
+[↑ 回到中文](#中文)　｜　[English](#english)
